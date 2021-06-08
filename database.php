@@ -11,10 +11,3 @@ catch (Exception $e)
 
 ?>
 
-<?php
-$reponse = $bdd->query('SELECT * FROM customers');
-?>
-<?php
-$donnees = $reponse->fetch();
-?>
-

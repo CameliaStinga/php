@@ -1,242 +1,92 @@
 <?php include("header.php") ?>
-<?php
-$Catalogue =
-    [
-        "Mariage" => [
-            "Nom" => "Mariage",
-            "prix" => 50,
-            "poids" => 10,
-            "remise" => 15,
-            "photo" => "https://previews.123rf.com/images/daksel/daksel1201/daksel120100004/11855386-Les-anneaux-de-mariage-en-forme-de-coeurs-Banque-d%2527images.jpg"
-        ],
-        "Bapteme" => [
-            "Nom" => "Baptème",
-            "prix" => 40,
-            "poids" => 10,
-            "remise" => 10,
-            "photo" => "https://www.asonimage.fr/I-Grande-6470-carte-de-bapteme.net.jpg"
-        ],
-        "Scolaire" => [
-            "Nom" => "Scolaire",
-            "prix" => 60,
-            "poids" => 10,
-            "remise" => 15,
-            "photo" => "https://www.canetenroussillon.fr/wp-content/uploads/rentreeScolaireGarconFille.jpg"
-        ],
 
-        "Paysage" => [
-            "Nom" => "Paysage",
-            "prix" => 70,
-            "poids" => 15,
-            "remise" => 10,
-            "photo" => "https://lesdeuxpiedsdehors.com/wp-content/uploads/2017/10/r%C3%A9ussir-ses-photos-de-paysage-en-voyage11.jpg"
-        ],
-        "Culinaire" => [
-            "Nom" => "Culinaire",
-            "prix" => 60,
-            "poids" => 10,
-            "remise" => 10,
-            "photo" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiRb8ZPkL16fAa88m9T82r2OS_6Tk-hSuNrQ&usqp=CAU"
-        ],
-        "Autres" => [
-            "Nom" => "Autres",
-            "prix" => 50,
-            "poids" => 10,
-            "remise" => 0,
-            "photo" => "https://www.chezvlane.com/photo/art/grande/11434438-19087684.jpg?v=1490136573"
-        ]
-    ];
-echo "<h3> Catalogue</h3>";
-echo "<table>
-    <tr> 
-      <th> Nom</th>
-      <th> prix</th>
-      <th> poids</th>
-      <th> remise</th>
-      <th> photo</th>
-    </tr>
-    <tr> 
-      <td> " . $Catalogue["Mariage"]["Nom"] . "</td>
-      <td> " . $Catalogue["Mariage"]["prix"] . "</td>
-      <td> " . $Catalogue["Mariage"]["poids"] . "</td>
-      <td> " . $Catalogue["Mariage"]["remise"] . "</td>
-      <td> <img src = '" . $Catalogue["Mariage"]["photo"] . "' alt = 'photo mariage' height=60 width=60/></td>
-    </tr>
-    <tr>
-      <td>" . $Catalogue["Bapteme"]["Nom"] . "</td>
-      <td>" . $Catalogue["Bapteme"]["prix"] . " </td>
-      <td>" . $Catalogue["Bapteme"]["poids"] . "</td>
-      <td>" . $Catalogue["Bapteme"]["remise"] . "</td>
-      <td><img src = '" . $Catalogue["Bapteme"]["photo"] . "' alt = 'photo baptème' height=60 width=60/></td>
-    <tr> 
-      <td> " . $Catalogue["Scolaire"]["Nom"] . "</td>
-      <td> " . $Catalogue["Scolaire"]["prix"] . "</td>
-      <td> " . $Catalogue["Scolaire"]["poids"] . "</td>
-      <td> " . $Catalogue["Scolaire"]["remise"] . "</td>
-      <td> <img src = '" . $Catalogue["Scolaire"]["photo"] . "' alt = 'photo scolaire' height=60 width=60/></td>
-    </tr>
-      <td> " . $Catalogue["Paysage"]["Nom"] . "</td>
-      <td> " . $Catalogue["Paysage"]["prix"] . "</td>
-      <td> " . $Catalogue["Paysage"]["poids"] . "</td>
-      <td> " . $Catalogue["Paysage"]["remise"] . "</td>
-      <td> <img src = '" . $Catalogue["Paysage"]["photo"] . "' alt = 'photo paysage' height=60 width=60/></td>
-    </tr>
-    <tr> 
-      <td> " . $Catalogue["Culinaire"]["Nom"] . "</td>
-      <td> " . $Catalogue["Culinaire"]["prix"] . "</td>
-      <td> " . $Catalogue["Culinaire"]["poids"] . "</td>
-      <td> " . $Catalogue["Culinaire"]["remise"] . "</td>
-      <td> <img src = '" . $Catalogue["Culinaire"]["photo"] . "' alt = 'photo culinaire' height=60 width=60/></td>
-    </tr>
-    <tr> 
-      <td> " . $Catalogue["Autres"]["Nom"] . "</td>
-      <td> " . $Catalogue["Autres"]["prix"] . "</td>
-      <td> " . $Catalogue["Autres"]["poids"] . "</td>
-      <td> " . $Catalogue["Autres"]["remise"] . "</td>
-      <td> <img src = '" . $Catalogue["Autres"]["photo"] . "' alt = 'photo autres' height=60 width=60/></td>
-    </tr>
-  </table>";
-echo "<pre>";
-var_dump($Catalogue);
-echo "</pre>";
+<?php include("my_functions.php") ?>
+<?php
+include("Produits.php")
 ?>
+<?php global $Catalogue; ?>
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="2">
+                <h1 align="center"> Catalogue </h1>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center">
+                <h3>Nom</h3>
+            </td>
+            <td align="center">
+                <h3>Prix TTC (€) </h3>
+            </td>
+            <td align="center">
+                <h3>Prix HT (€)</h3>
+            </td>
+            <td align="center">
+                <h3>Remise (%)</h3>
+            </td>
+            <td align="center">
+                <h3>Poids (g)</h3>
+            </td>
+            <td align="center">
+                <h3>Photos</h3>
+            </td>
+            <td align="center">
+                <h3>Prix TTC remisé (€)</h3>
+            </td>
+            <td align="center">
+                <h3>Quantité/Transporteur</h3>
+            </td>
+            <td align="center">
+                <h3>Frais de port</h3>
+            </td>
+        </tr>
 
-<?php
-echo '<br>';
-echo "<h3> Catalogue for</h3>
-     <table>
-      <tr> 
-         <th> Nom</th>
-         <th> prix</th>
-         <th> poids</th>
-         <th> remise</th>
-         <th> photo</th>
-      </tr>";
+        <?php
+        foreach ($Catalogue as $cle_1 => $valeur) { ?>
 
-$keys = array_keys($Catalogue);
-for ($i = 0; $i < count($keys); $i = $i + 1) {
-    //echo "<pre>";
-    //echo $keys[$i];
-    echo "         
-           <tr>
-               <td>" . $Catalogue[$keys[$i]]["Nom"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["prix"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["poids"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["remise"] . "</td>
-               <td> <img src='" . $Catalogue[$keys[$i]]["photo"] . "' alt ='photo' height=60 width=60/></td>
-            </tr> ";
-//echo "</pre>";
+            <tr>
+                <td align="center"> <?php echo $valeur["Nom"]  ?> </td>
+                <td align="center"> <?php echo formatPrice($valeur["prix"]) ?></td>
+                <td align="center"> <?php echo formatPrice(priceEXcludingVAT($valeur["prix"])) ?> </td>
+                <td align="center"> <?php echo $valeur["remise"]  ?> </td>
+                <td align="center"> <?php echo $valeur["poids"]  ?> </td>
+                <td align="center"> <img src='<?php echo $valeur["photo"] ?>' alt='photo' height=60 width=60 /></td>
+                <td align="center"> <?php echo formatPrice(displayDiscountPrice($valeur["prix"], $valeur["remise"])) ?></td>
+                
+                <form method="POST" action="cart.php">
 
-}
-echo "</table>";
+                    <td align="left"><label for="form-select" type="number"> </label>
 
-/*echo "<br> ";
-var_dump ($Catalogue ['Mariage']);
-echo "<br> ";
-var_dump ($Catalogue ['Baptème']);
-echo "<br> ";
-var_dump ($Catalogue ['Scolaire']);
-echo "<br> ";
-var_dump ($Catalogue ['Paysage']);
-echo "<br> ";
-var_dump ($Catalogue ['Culinaire']);
-echo "<br> ";
-var_dump ($Catalogue ['Autres']);
-echo "<br> ";
-//echo "<br>Alex's phone number is  $phone_numbers[Alex]. </br>";
-//echo "Jessica's phone number is " . $phone_numbers["Jessica"]. "\n";*/
+                        <input type="hidden" name="Nom" value="<?php echo $cle_1; ?>" />
+                        <input type="hidden" name="remise" value="<?php echo $valeur["remise"]; ?>" />
+                        <input type="hidden" name="prix" value="<?php echo formatPrice($valeur["prix"]); ?>" />
+                        <input type="hidden" name="prixHT" value="<?php echo formatPrice(priceEXcludingVAT($valeur["prix"])); ?>" />
+                        <input type="hidden" name="prixremise" value="<?php echo formatPrice(displayDiscountPrice($valeur["prix"], $valeur["remise"])); ?>" />
+                        <input type="hidden" name="poids" value="<?php echo $valeur["poids"]; ?>" />
+                        <input type="number" name="quantite" min="0" placeholder="entre 0 et 1000" />
+                        <input type="hidden" name="frais de port" value="<?php echo frais_de_port ($poids_total, $prixTTC); ?>" />
+                        
+                        <select type = text name="Transporteur">
+                            <option value="choix du transporteur">Transporteur</option>
+                            <option value="La Poste">La Poste</option>
+                            <option value="TNT">TNT</option>
+                            <option value="autre">autre </option>
+                        </select>
+                        <input type="submit" class="btn btn-primary" value="commander" />
+                    </td>
+
+            </tr>
 
 
-?>
+            </form>
 
-<?php
-echo '<br>';
-echo "<h3> Catalogue foreach </h3>
-          <table>
-             <tr> 
-                <th> Nom</th>
-                <th> prix</th>
-                <th> poids</th>
-                <th> remise</th>
-                <th> photo</th>
-             </tr>";
-
-
-foreach ($Catalogue as $cle_1 => $valeur_1) {
-    echo "<tr>";
-    foreach ($valeur_1 as $cle_2 => $valeur_2) {
-
-        if ($cle_2 == "photo") {
-            echo " <td> <img src='" . $valeur_2 . "' alt ='photo' height=60 width=60/></td>";
-            continue;
+        <?php
         }
-
-        echo "<td>" . $valeur_2 . "</td>";
-
-    }
-    echo "</tr>";
-}
-echo "</table>;"
-?>
-
-<?php
-echo '<br>';
-echo "<h3> Catalogue while </h3>
-          <table>
-             <tr> 
-                <th> Nom</th>
-                <th> prix</th>
-                <th> poids</th>
-                <th> remise</th>
-                <th> photo</th>
-             </tr>";
-
-$i = 0;
-while ($i < count($keys)) {
-
-    $keys = array_keys($Catalogue);
-
-    echo "
-           <tr>
-              <td>" . $Catalogue[$keys[$i]]["Nom"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["prix"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["poids"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["remise"] . "</td>
-               <td> <img src='" . $Catalogue[$keys[$i]]["photo"] . "' alt ='photo' height=60 width=60/></td>
-            </tr>";
-    $i = $i + 1;
-}
-echo "</table>";
-
-?>
-<?php
-echo '<br>';
-echo "<h3> Catalogue do while </h3>
-          <table>
-             <tr> 
-                <th> Nom</th>
-                <th> prix</th>
-                <th> poids</th>
-                <th> remise</th>
-                <th> photo</th>
-             </tr>";
-$i = 0;
-
-do {
-    $keys = array_keys($Catalogue);
-
-    echo " <tr>
-               <td>" . $Catalogue[$keys[$i]]["Nom"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["prix"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["poids"] . "</td>
-               <td>" . $Catalogue[$keys[$i]]["remise"] . "</td>
-               <td> <img src='" . $Catalogue[$keys[$i]]["photo"] . "' alt ='photo' height=60 width=60/></td>
-            </tr>";
-    $i = $i + 1;
-} while ($i < count($keys));
-
-echo "</table>";
-?>
-
+        ?>
+    </tbody>
+</table>
 
 <?php include("footer.php") ?>
