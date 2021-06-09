@@ -90,8 +90,7 @@ $r4->closeCursor();
 <?php
 function insertOrder (){
     $bdd=bddAccess();
- $bdd->exec('INSERT INTO orders(date,number,customer_id) 
-                               VALUES (\'2021-06-08\',\'order00007\',2)');
+ $bdd->exec('INSERT INTO orders(date,number,customer_id) VALUES (\'2021-06-08\',\'order00007\',2)');
     echo "Commande ajoutée!";
     echo"<br>";
 }
@@ -104,15 +103,22 @@ function deleteOrder ($id){
             'id'=>$id,
     ));
     echo "Commande effacée!";
+    echo"<br>";
     }
 ?>
 <?php
-function upDate ($id){
+//function upDate (){
+   // $bdd=bddAccess();
+    //$modif=$bdd->execute('UPDATE products SET price=price*1,05  WHERE categories_id = 3');
+
+    //
+    //echo $modif;
+//}
+
+function insertCustomer(){
     $bdd=bddAccess();
-    $req = $bdd->prepare('DELETE FROM `orders` WHERE `orders`.`id` = :id');
-    $req->execute(array(
-        'id'=>$id,
-    ));
-    echo "Commande effacée!";
+    $bdd->exec('INSERT INTO customers (last_name,first_name,email,address, postcode, city) VALUES (\'GOSLING\', \'Ryan\', \'ryan.gosling@gmail.com\',\'56 rue Verdun\',95000, \'Paris\')');
+    echo "Ryan ajouté!";
+    echo"<br>";
 }
 ?>
