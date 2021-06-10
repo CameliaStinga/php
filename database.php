@@ -2,9 +2,7 @@
 
 
 function bddAccess() {
-    return $bdd=new PDO(  'mysql:host=localhost;dbname=dabest_photographie;charset=utf8', 'camelia', 'nounours_*_21');
-
-
+    return new PDO(  'mysql:host=localhost;dbname=dabest_photographie;charset=utf8', 'camelia', 'nounours_*_21');
 }
 
 ?>
@@ -51,12 +49,12 @@ function orderProducts (){
                                FROM products 
                                INNER JOIN order_product ON(products.id=order_product.product_id)
                                WHERE order_product.order_id = 1');
-    while ($donnees = $r3->fetch())
+    while ($products = $r3->fetch())
     {
         ?>
-        <strong>Les produits de la commande id=1 sont </strong> : <?php echo $donnees['name'];?><br/>
-        <strong> La quantité est de</strong> : <?php echo $donnees['quantity'];?><br/>
-        <strong> Le prix est de</strong> : <?php echo $donnees['price'];?><br/>
+        <strong>Les produits de la commande id=1 sont </strong> : <?php echo $products['name'];?><br/>
+        <strong> La quantité est de</strong> : <?php echo $products['quantity'];?><br/>
+        <strong> Le prix est de</strong> : <?php echo $products['price'];?><br/>
         <?php
 
     }   echo"<br>";

@@ -53,21 +53,18 @@ function frais_de_port ($poids_total, $prixTTC) {
 
     if ($poids_total<=500) {
 
-       return (int)$frais_de_port = 5;
+       return  5;
        
     }
 
-else if ($poids_total<=2000) {
+    else if ($poids_total<=2000) {
 
-return (int)$frais_de_port = $prixTTC*0.1;
-}
+        return (int)$prixTTC*0.1;
+    }
 
-else {
+    
+       return 0;
 
-$frais_de_port = 0;
-
-return (int)$frais_de_port;
-
-}
+    
 }
 ?>
