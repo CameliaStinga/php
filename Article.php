@@ -25,6 +25,10 @@ class Article
         $this->size = $size;
         $this->categories_id = $categories_id;
     }
+    public function setPrice($price)
+    {
+        return $this->price = $price;
+    }
 
     public function displayArticle()
     { ?>
@@ -103,10 +107,6 @@ class Bol extends Article
 
 
     //setter: pour assigner la valeur à l'argument prix 
-    public function setprice($price)
-    {
-        return $this->price = $price;
-    }
 
     //getter : affiche (renvoie ) toutes les valeurs et donc le prix
     public function displayBol()
@@ -160,7 +160,7 @@ class Bol extends Article
             <tr>
 
                 <td> <?php echo " $this->name"; ?></td>
-                <td> <?php echo  $this->setprice(200); ?></td>
+                <td> <?php echo  $this->setPrice(200); ?></td>
                 <td> <?php echo '<img src="' . $this->picture . '" alt= "" height="60" width="60">' ?></td>
                 <td> <?php echo " $this->weight "; ?></td>
                 <td> <?php echo " $this->quantity"; ?></td>
